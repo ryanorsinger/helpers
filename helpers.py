@@ -41,11 +41,10 @@ def get_after_comma(s):
 
 ## Pandas's Little Helpers
 # do `import pandas as pd` because these require pandas
-
 def drop_matching_rows(df, column, values):
     """
         Returns a dataframe excluding rows where a column value exists in the list of provided values
         This is kind of like a reverse .filter method
         Use this for when df.drop(['A', 'B']) throws "['A', 'B'] not found in axis"
     """
-    return df[df[column].apply(x:x not in values)]
+    return df[df[column].apply(lambda x:x not in values)]
