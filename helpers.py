@@ -28,8 +28,10 @@ def get_after_delimiter(string, delimiter):
         Returns the string contents after the first occurance of the provided delimiter
         Example: get_after_delimiter("This, that, and the other", ",") returns "that, and the other"
     """
-    return string[string.index(delimiter) + 1:].strip()
-
+    if string in delimiter:
+        return string[string.index(delimiter) + 1:].strip()
+    else:
+        return string
 
 def get_after_comma(s):
     """
