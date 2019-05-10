@@ -50,3 +50,21 @@ def drop_matching_rows(df, column, values):
         Use this for when df.drop(['A', 'B']) throws "['A', 'B'] not found in axis"
     """
     return df[df[column].apply(lambda x:x not in values)]
+
+
+
+
+# apply a list of functions to an input
+def compose(input, fns):
+    from functools import reduce
+    comp = lambda *fns: lambda x: reduce(lambda x,ff: f(x), fns, x)
+    return comp(input)
+
+
+def unique_word_count(string):
+    """
+        Returns the count of unique words in a string.
+    """ 
+    words = string.split(" ")
+    unique_words = set(words)
+    return len(unique_words)
