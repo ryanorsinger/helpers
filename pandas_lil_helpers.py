@@ -21,3 +21,7 @@ def drop_matching_rows(df, column, values):
 #         a = df[df[column].apply(f)]
 
 #     return a
+
+
+def extract_digits_from_string(df, column):
+    return df[column]str.extract('(\d+)')
